@@ -10,6 +10,9 @@ import java.util.concurrent.TimeUnit;
 
 public abstract class MySensor {
 	
+	private static final int simulatedReadNumber = 50; /** The number of simulated sensor reads for generate **/
+	private static final int delayTime = 5; /** Time to delay, in seconds **/
+	
 	private static MemoryPersistence persistence;
 	private static MqttClient sampleClient;
 	private static MqttConnectOptions connOpts;
@@ -41,9 +44,26 @@ public abstract class MySensor {
 		
 		System.out.println("Host: " + args[0]);
 		System.out.println("Inicializando simulador para " + args[1] + " sensores");
+		
+		int sensorNumber = Integer.parseInt(args[1]);
+		
 		try {
 			mqqtConnect("tcp://127.0.0.1:1883");
-			mqqtSendMessage("arroz", "feijao");
+			for(int i = 0; i < simulatedReadNumber; i++) {
+				
+				TimeUnit.SECONDS.sleep(delayTime);
+				
+				for (int j = 0; j < sensorNumber; j++) {
+					
+					long temperature = 25 + Math.round(Math.random() * 10.0);
+					
+					mqqtSendMessage(
+						"sensor".concat(Integer.toString(j)),
+						Long.toString(temperature)
+					);
+				}
+			}
+			
 			mqqtDisconnect();
 		} catch (Exception e) {
 			e.printStackTrace();
