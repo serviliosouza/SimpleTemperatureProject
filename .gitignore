@@ -1,3 +1,4 @@
 WEBSERVER/apache-tomcat-9.0.8/work
 WEBSERVER/apache-tomcat-9.0.8/logs
 WEBSERVER/apache-tomcat-9.0.8/webapps/ROOT/WEB-INF/classes
+catalina.out
