@@ -16,12 +16,21 @@ mosquitto -d
 
 git clone "https://github.com/serviliosouza/SimpleTemperatureProject.git"
 
+
 cd ./SimpleTemperatureProject/SENSOR_SIMULATOR
 
 make build
 
 bash exec.sh 3
 - It will be running on the terminal, please open another terminal window to continue
+
+cd ../SimpleTemperatureProject/SQL
+
+mysql --host=localhost --user=ROOT -p
+
+source setup-database.sql
+
+exit
 
 cd ../SimpleTemperatureProject/WEBSERVER
 
