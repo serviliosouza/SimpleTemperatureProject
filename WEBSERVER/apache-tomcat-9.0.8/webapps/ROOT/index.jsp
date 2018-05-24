@@ -16,13 +16,13 @@
 	</head>
 	<body>
 		<p>
+		Sensor 0: ${sensors.get('sensor0')}
+		</p>
+		<p>
 		Sensor 1: ${sensors.get('sensor1')}
 		</p>
 		<p>
 		Sensor 2: ${sensors.get('sensor2')}
-		</p>
-		<p>
-		Sensor 3: ${sensors.get('sensor3')}
 		</p>
 	</body>
 </html>

@@ -14,6 +14,8 @@ import javax.servlet.RequestDispatcher;
 
 import utilities.SimpleMqttOperator;
 
+import utilities.Temperature;
+
 import org.json.JSONObject;
 
 /**
@@ -40,9 +42,9 @@ public class SimpleServlet extends HttpServlet
 		{
 			obj = new JSONObject();
 			
-			obj.put("sensor1", "a");
-			obj.put("sensor2", "b");
-			obj.put("sensor3", "c");
+			obj.put("sensor0", Temperature.getCurrentTemperature("sensor0"));
+			obj.put("sensor1", Temperature.getCurrentTemperature("sensor1"));
+			obj.put("sensor2", Temperature.getCurrentTemperature("sensor2"));
 			
 			session.setAttribute("sensors", obj);
 			
