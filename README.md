@@ -24,7 +24,7 @@ make build
 bash exec.sh 3
 - It will be running on the terminal, please open another terminal window to continue
 
-cd ../SimpleTemperatureProject/SQL
+cd ../SimpleTemperatureProject/DATABASE
 
 mysql --host=localhost --user=ROOT -p
 

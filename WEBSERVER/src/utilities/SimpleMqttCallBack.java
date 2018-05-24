@@ -17,6 +17,9 @@ public class SimpleMqttCallBack implements MqttCallback {
     
     // Putting the new value to temperature cache
     Temperature.putCurrentTemperature(topic, message);
+    
+    // Adding the value to database
+    Database.insertReg(topic, message);
   }
 
   public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {

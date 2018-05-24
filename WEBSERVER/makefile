@@ -9,7 +9,7 @@ CLASSDIR   = $(CONTEXTDIR)/WEB-INF/classes
 JARDIR     = $(CONTEXTDIR)/WEB-INF/lib
 
 # Class Path
-CLASSPATH=$(TOMCATDIR)/lib/servlet-api.jar:$(JARDIR)/org.eclipse.paho.client.mqttv3-1.2.1-20180523.040548-143.jar:$(JARDIR)/json-20170516.jar:$(JARDIR)/jstl-1.2.jar
+CLASSPATH=$(TOMCATDIR)/lib/servlet-api.jar:$(JARDIR)/org.eclipse.paho.client.mqttv3-1.2.1-20180523.040548-143.jar:$(JARDIR)/json-20170516.jar:$(JARDIR)/jstl-1.2.jar:$(JARDIR)/mysql-connector-java-5.1.42-bin.jar
 
 # Toolchain Configuration
 JAVAC = javac
