@@ -5,6 +5,14 @@
 <html>
 	<head>
 		<title>Temperatura</title>
+		<script>
+			setTimeout(
+				function() {
+					location.href = "/temperatura";
+				},
+				300000
+			);
+		</script>
 	</head>
 	<body>
 		<p>
