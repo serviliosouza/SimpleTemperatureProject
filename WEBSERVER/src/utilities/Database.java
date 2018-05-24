@@ -56,7 +56,7 @@ public abstract class Database
 			cookedStmt = connection.prepareStatement(query);
 			
 			cookedStmt.setString(1, sensor);
-			cookedStmt.setString(2, Integer.parseInt(value));
+			cookedStmt.setInt(2, Integer.parseInt(value));
 		
 			cookedStmt.executeUpdate();
 		
