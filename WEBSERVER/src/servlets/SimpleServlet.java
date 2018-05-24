@@ -14,6 +14,8 @@ import javax.servlet.RequestDispatcher;
 
 import utilities.SimpleMqttOperator;
 
+import org.json.JSONObject;
+
 /**
  * Simple Servlet Implementation
  */
@@ -30,14 +32,19 @@ public class SimpleServlet extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		JSONObject obj;
+		
+		HttpSession session = request.getSession();
 		
 		try
 		{
-			System.out.println("Enviando Requisição");
-			SimpleMqttOperator.sendMqttMessage("topico1", "msg1");
+			obj = new JSONObject();
 			
-			System.out.println("Criando um receptor");
-			SimpleMqttOperator.createParallelListenerForTopic("topico2");
+			obj.put("sensor1", "a");
+			obj.put("sensor2", "b");
+			obj.put("sensor3", "c");
+			
+			session.setAttribute("sensors", obj);
 			
 		}
 		catch (Exception e)

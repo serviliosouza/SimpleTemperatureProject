@@ -1,1 +1,20 @@
-OLA
+<%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<html>
+	<head>
+		<title>Temperatura</title>
+	</head>
+	<body>
+		<p>
+		Sensor 1: ${sensors.get('sensor1')}
+		</p>
+		<p>
+		Sensor 2: ${sensors.get('sensor2')}
+		</p>
+		<p>
+		Sensor 3: ${sensors.get('sensor3')}
+		</p>
+	</body>
+</html>
