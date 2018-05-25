@@ -8,9 +8,11 @@
 	</head>
 	<body>
 		<p>
-		Relatorio<br/>
+		<b>Relatorio</b>
+		<br/>
+		DATA - Sensor - Valor medido
 		<c:forEach var="p" items="${relatorio}">
-			${p}
+			${p.get('dt')} - ${p.get('sensor_id')} - ${p.get('temperature')} ºC <br/>
 		</c:forEach>
 		</p>
 	</body>

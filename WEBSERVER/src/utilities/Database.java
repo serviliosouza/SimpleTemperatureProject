@@ -82,7 +82,7 @@ public abstract class Database
 		ArrayList<JSONObject> array = null;
 		Statement stmt = null;
 		try {
-			String query = "select * from tempdata";
+			String query = "select dt, sensor_id, temperature from tempdata order by dt, sensor_id";
 		
 			Connection connection = getConnection();
 			stmt = connection.createStatement();
@@ -102,6 +102,7 @@ public abstract class Database
 			else
 			{
 				temp = new JSONObject();
+				temp.put("dt", queryResult.getString("dt"));
 				temp.put("sensor_id", queryResult.getString("sensor_id"));
 				temp.put("temperature", queryResult.getInt("temperature"));
 				
@@ -109,6 +110,7 @@ public abstract class Database
 					
 				while (queryResult.next()) {
 					temp = new JSONObject();
+					temp.put("dt", queryResult.getString("dt"));
 					temp.put("sensor_id", queryResult.getString("sensor_id"));
 					temp.put("temperature", queryResult.getInt("temperature"));
 					
