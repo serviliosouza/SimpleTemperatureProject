@@ -26,7 +26,7 @@ bash exec.sh 3
 
 cd ../SimpleTemperatureProject/DATABASE
 
-mysql --host=localhost --user=ROOT -p
+mysql --host=localhost --user=root -p
 
 source setup-database.sql
 
