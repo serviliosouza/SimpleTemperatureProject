@@ -34,6 +34,7 @@ exit
 
 cd ../SimpleTemperatureProject/WEBSERVER
 
+- Now, you need to configure the database credentials. Go to apache-tomcat-9.0.8/bin/setenv.sh and change the ROOT password for database connection.
 make build
 
 bash scripts/run.sh
