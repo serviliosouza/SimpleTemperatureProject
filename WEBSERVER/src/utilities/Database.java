@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import org.json.JSONObject;
+import java.util.ArrayList;
 
 public abstract class Database
 {
@@ -70,5 +75,52 @@ public abstract class Database
 				cookedStmt.close();
 			}
 		}
+	}
+	
+	public static ArrayList<JSONObject> getRegisters() {
+		
+		ArrayList<JSONObject> array = null;
+		Statement stmt = null;
+		try {
+			String query = "select * from tempdata";
+		
+			Connection connection = getConnection();
+			stmt = connection.createStatement();
+			
+			ResultSet queryResult = stmt.executeQuery(query);
+			
+			array = new ArrayList<JSONObject>();
+			
+			JSONObject temp;
+			
+			if (queryResult.next() == false) {
+				temp = new JSONObject();
+				temp.put("noreg", "noreg");
+				
+				array.add(temp);
+			}
+			else
+			{
+				temp = new JSONObject();
+				temp.put("sensor_id", queryResult.getString("sensor_id"));
+				temp.put("temperature", queryResult.getInt("temperature"));
+				
+				array.add(temp);
+					
+				while (queryResult.next()) {
+					temp = new JSONObject();
+					temp.put("sensor_id", queryResult.getString("sensor_id"));
+					temp.put("temperature", queryResult.getInt("temperature"));
+					
+					array.add(temp);
+				}
+			}
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return (array);
 	}
 }
